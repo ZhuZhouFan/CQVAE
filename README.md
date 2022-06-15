@@ -1,2 +1,6 @@
 # EMPIRICAL-ASSET-PRICING-VIA-THE-CONDITIONAL-QUANTILE-VARIATIONAL-AUTOENCODER
 This is a pre-release version of code for paper EMPIRICAL ASSET PRICING VIA THE CONDITIONAL QUANTILE VARIATIONAL AUTOENCODER.
+
+The paper is accessible at ......
+
+The dataset of this paper could be download through .....

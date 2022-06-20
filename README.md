@@ -2,4 +2,5 @@
 This is a pre-release version of code for:
 
 EMPIRICAL ASSET PRICING VIA THE CONDITIONAL QUANTILE VARIATIONAL AUTOENCODER.
+
 Xuanling Yang*, Zhoufan Zhu*, Dong Li, Ke Zhu. (*: equal contribution)

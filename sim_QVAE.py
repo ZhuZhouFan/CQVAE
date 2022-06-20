@@ -25,7 +25,7 @@ def train_once(repetition_index, bandwidth, N, T, P_f, P_x, P_c, W, linear_index
                     learning_rate = lr,
                     seed = seed + repetition_index,
                     log_dir = log_dir)
-    AE_feature = AE_label = torch.Tensor(r.transpose())
+    AE_feature = AE_label = torch.Tensor(portfolio.transpose())
     AE_agent.load_data(feature = AE_feature, label = AE_label, valid_size = 1/3, test_size = 1/3, num_cpu = 0, batch_size = 64)
     AE_agent.train(AE_epoch_num, 0)
     AE_model_para = torch.load(f'{log_dir}/Beta_VAE_best.pth')

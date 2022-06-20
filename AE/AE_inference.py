@@ -88,5 +88,5 @@ class AE_Factor_Inference(object):
                 y_preds[j] = pd.DataFrame(data = torch.bmm(beta, torch.unsqueeze(ma_latent, axis = 2)).cpu().numpy().squeeze(2),
                                            index = self.trade_index,
                                            columns = self.permno_list)
-                y_preds[j].iloc[:self.bandwidth, :] = np.nan  # it should be np.nan, but not zero
+                y_preds[j].iloc[:self.bandwidth, :] = np.nan 
         return y_totals, y_preds

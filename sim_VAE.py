@@ -14,14 +14,17 @@ def train_once(repetition_index, bandwidth, N, T, P_f, P_x, P_c, W, linear_index
     # r, C = DGP_t3(N, T, P_f, P_x, P_c, W, linear_index)
     P = C.shape[2]
     log_dir = f'{root_log_dir}/{repetition_index}'
-    VAE_agent = Beta_VAE_Agent(input_dim = N,
+    portfolio = np.zeros((P, T))
+    for t in range(T):
+        portfolio[:, t] = np.linalg.inv(C[:, t, :].transpose() @ C[:, t, :]) @ C[:, t, :].transpose() @ r[:, t]
+    VAE_agent = Beta_VAE_Agent(input_dim = P,
                     latent_dim = K,
-                    output_dim = N,
+                    output_dim = P,
                     beta = beta, 
                     learning_rate = lr,
                     seed = seed + repetition_index,
                     log_dir = log_dir)
-    VAE_feature = VAE_label = torch.Tensor(r.transpose())
+    VAE_feature = VAE_label = torch.Tensor(portfolio.transpose())
     VAE_agent.load_data(feature = VAE_feature, label = VAE_label, valid_size = 1/3, test_size = 1/3, num_cpu = 0, batch_size = 64)
     VAE_agent.train(AE_epoch_num, 0)
     VAE_model_para = torch.load(f'{log_dir}/Beta_VAE_best.pth')

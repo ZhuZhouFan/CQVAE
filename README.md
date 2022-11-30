@@ -6,16 +6,16 @@ If you have any question about this resposity or implement details of paper, ple
 ## Reproduce the simulation results with certain hyperparameters
 ```
 # CAE
-python main.py --model CAE --save-folder logs/CAE
+python main.py --model CAE --save-folder logs/CAE --lam 1e-4
 
 # CVAE
-python main.py --model CVAE --save-folder logs/CVAE --lam 0
+python main.py --model CVAE --save-folder logs/CVAE
 
 # CQAE
-python main.py --model CVAE --save-folder logs/CVAE --lam 2e-5
+python main.py --model CQAE --save-folder logs/CQAE --lam 2e-5
 
 # CQVAE
-python main.py --model CVAE --save-folder logs/CVAE --lam 0
+python main.py --model CQVAE --save-folder logs/CQVAE
 ```
 
 ## Reproduce the empirical analysis result

@@ -57,15 +57,6 @@ def simulate(repetition_index, root_log_dir, seed,
     else:
         raise ValueError('Model must be choosen from CAE, CVAE, CQAE and CQVAE')
     
-    # whether use the managed portfolio return
-    # if managed_index:
-    #     portfolio = np.zeros((P, T))
-    #     for t in range(T):
-    #         portfolio[:, t] = np.linalg.inv(C[:, t, :].transpose() @ C[:, t, :]) @ C[:, t, :].transpose() @ r[:, t]
-    #     AE_feature = AE_label = torch.Tensor(portfolio.transpose())
-    # else:
-    #     AE_feature = AE_label = torch.Tensor(r.transpose())
-    
     # compute the managed portfolio return 
     portfolio = np.zeros((P, T))
     for t in range(T):
@@ -156,21 +147,6 @@ def simulate(repetition_index, root_log_dir, seed,
     feature_test = AE_factor.feature_test
     r_test = feature_test[:, :, -1]
     c_test = feature_test[:, :, :-1]
-    
-    # if managed_index:
-    #     portfolio_test = torch.zeros((r_test.shape[0], P), device = AE_factor.network.device)
-    #     for t in range(r_test.shape[0]):
-    #         portfolio_test[t, :] = torch.inverse(c_test[t, :, :].t() @ c_test[t, :, :]) @ c_test[t, :, :].t() @ r_test[t, :]
-            
-    #     if model_type in ['CAE', 'CQAE']:
-    #         latent_ = AE_factor.network.Encoder(portfolio_test.to(AE_factor.network.device))
-    #     else:
-    #         latent_, _ = AE_factor.network.Encoder(portfolio_test.to(AE_factor.network.device))
-    # else:
-    #     if model_type in ['CAE', 'CQAE']:
-    #         latent_ = AE_factor.network.Encoder(r_test.to(AE_factor.network.device))
-    #     else:
-    #         latent_, _ = AE_factor.network.Encoder(r_test.to(AE_factor.network.device))
     
     portfolio_test = torch.zeros((r_test.shape[0], P), device = AE_factor.network.device)
     for t in range(r_test.shape[0]):
@@ -269,7 +245,7 @@ if __name__ == '__main__':
                         help='Number of hidden units in FC layer')
     parser.add_argument('--lr', type=float, default = 1e-2, 
                         help='Learning rate for ADAM algorithm')
-    parser.add_argument('--lam', type=float, default = 1e-4, 
+    parser.add_argument('--lam', type=float, default = 0, 
                         help='Tuning parameter for L_1 penalty')
     parser.add_argument('--bandwidth', type = int, default = 10, 
                     help='Bandwidth for predicting the latent factor')

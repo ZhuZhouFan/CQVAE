@@ -1,3 +1,5 @@
+# EMPIRICAL-ASSET-PRICING-VIA-THE-CONDITIONAL-QUANTILE-VARIATIONAL-AUTOENCODER
+This is a pre-release version of code for:
 # Asset pricing via the conditional quantile variational autoencoder
 This resposity is a pre-released verison of Python code used in the paper "[Asset pricing via the conditional quantile variational autoencoder](https://www.researchgate.net/publication/361455269_Asset_pricing_via_the_conditional_quantile_variational_autoencoder)".
 

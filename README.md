@@ -17,8 +17,8 @@ python main.py --model CVAE --save-folder logs/CVAE --lam 0
 ```
 
 ## Reproduce the empirical analysis result
-1. Download data from the homepage of Prof. Dacheng Xiu ([data link](https://dachxiu.chicagobooth.edu/download/datashare.zip))
-2. Preprocess the data with the code in [code link](https://feng-cityuhk.github.io/EquityCharacteristics/)
+1. Download data from the homepage of Prof. Dacheng Xiu ([data link](https://dachxiu.chicagobooth.edu/download/datashare.zip)).
+2. Preprocess the data with the code in [code link](https://feng-cityuhk.github.io/EquityCharacteristics/).
 3. Feed the processed data into our algorithm.
 See main.py for more details.
 

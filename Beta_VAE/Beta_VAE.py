@@ -1,7 +1,6 @@
 import numpy as np
 import os
 import torch
-from tqdm import tqdm
 from torch.utils.tensorboard import SummaryWriter
 from torch.utils.data import TensorDataset, DataLoader
 from Network import VAE_Network
@@ -58,7 +57,7 @@ class Beta_VAE_Agent():
     def train(self, epoch_num, lam):
         # print("Start training VAE...")
         self.network.train()
-        for i in tqdm(range(epoch_num)):
+        for i in range(epoch_num):
             train_losses = list()
             for j, (x, _) in enumerate(self.train_loader):
                 x = x.to(self.network.device)

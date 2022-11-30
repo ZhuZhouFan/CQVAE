@@ -70,9 +70,6 @@ class AE_Agent():
         print(f'best score:{self.best_score}')
 
     def evaluate(self, i, epoch_num, lam):
-        '''
-        对网络进行评估
-        '''
         self.network.eval()
         with torch.no_grad():
             test_losses = list()

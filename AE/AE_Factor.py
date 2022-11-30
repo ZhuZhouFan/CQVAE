@@ -98,7 +98,7 @@ class AE_Factor_Agent():
             train_loss = torch.tensor(train_losses).mean()
             print(f'Epoch {i}/{epoch_num-1} Training Loss {train_loss:.2f} Time Consume {dtime:.3f}')
             self.writer.add_scalar('loss/train', train_loss, i)
-            if i % 10 == 0:
+            if i % 5 == 0:
                 self.evaluate(i, epoch_num, lam)
             if self.early_stopping_count >= 10:
                 break

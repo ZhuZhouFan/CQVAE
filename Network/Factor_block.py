@@ -101,9 +101,6 @@ class Quantile_Factor_Loading_Network(nn.Module):
         self.FC2 = nn.Linear(hidden_dim, latent_dim * tau_num)
         self.BN = nn.BatchNorm1d(input_dim)
         self.Relu = nn.ReLU()
-        '''
-        the effect of weight initialization is still unknown
-        '''
         for m in self.modules():
             if isinstance(m, nn.Linear):
                 torch.nn.init.trunc_normal_(m.weight.data, 0, 0.01)

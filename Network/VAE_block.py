@@ -48,12 +48,12 @@ class VAE_Network(nn.Module):
         self.Decoder = VAE_Decoder(latent_dim, output_dim).to(self.device)
 
     def reparameterization(self, mean, var):
-        epsilon = torch.randn_like(var).to(self.device) #抽样噪音
+        epsilon = torch.randn_like(var).to(self.device)
         z = mean + var * epsilon
         return z
 
     def forward(self, x):
         mean, log_var = self.Encoder(x)
-        z = self.reparameterization(mean, torch.exp(0.5 * log_var)) # log std -> std
+        z = self.reparameterization(mean, torch.exp(0.5 * log_var))
         x_hat = self.Decoder(z)
         return x_hat, mean, log_var

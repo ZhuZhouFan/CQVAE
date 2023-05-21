@@ -20,18 +20,19 @@ python main.py --model CQVAE --save-folder logs/CQVAE
 
 ## Reproduce the empirical analysis result
 1. Download data from the homepage of Prof. Dacheng Xiu ([homepage link](https://dachxiu.chicagobooth.edu) and [data link](https://dachxiu.chicagobooth.edu/download/datashare.zip)).
-2. Preprocess the data with the code in [code link](https://feng-cityuhk.github.io/EquityCharacteristics/).
-3. Feed the processed data into our algorithm.
-See main.py for more details.
+2. Preprocess the data by ```python preprocess_data.py```. Please make sure the directories are specified.
+3. Train the models by ```python empirical_main.py```. The tuning procedure of hyperparameters and ensemble learning should be done in this step. 
+4. Calculate the out-of-sample prediction by using ```python inference_main.py```.
 
 ## Citation
 Please cite our paper if you feel this code helps.
 ```
 @article{yang2022CQVAE,
     author = {Yang, Xuanling and Zhu, Zhoufan and Li, Dong and Zhu, Ke},
-    year = {2022},
-    month = {06},
+    year = {2023},
+    month = {05},
     pages = {},
+    journal = {forthcoming in Journal of Business \& Economic Statistics}
     title = {Asset pricing via the conditional quantile variational autoencoder}
 }
 ```

@@ -58,7 +58,7 @@ class AE_Agent():
                 L1_loss = 0
                 for param in self.network.parameters():
                     L1_loss += torch.sum(torch.abs(param))
-                loss = self.loss_function(x, x_hat) + L1_loss*self.batch_size*lam
+                loss = self.loss_function(x, x_hat) + L1_loss * self.batch_size * lam
                 train_losses.append(loss.item())
                 self.update_params(self.optimizer, loss, networks=[self.network])
             train_loss = torch.tensor(train_losses).mean()

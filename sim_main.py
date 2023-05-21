@@ -1,15 +1,15 @@
 '''
-This file is used to reproduce the simulation results for CAE, CVAE, CQAE and CQVAE models in the Appendix.
+This code is used to reproduce the simulation results for CAE, CVAE, CQAE, and CQVAE models, as presented in the Appendix.
 
-The workflow of this file could be abstracted as following:
-1. generate the [N, T, P] feature of firm characteristics and [N, T] excess return;
-2. Divide the full dataset into training set, validation set and testing set;
-3. Train the model with training dataset and validation dataset;
-4. Evaluate the model performance on the testing set.
+The workflow of this file could be abstracted as the following steps:
+1. Generate the [N, T, P] feature of firm characteristics and [N, T] excess return;
+2. Segment the full dataset into training sample, validation sample and testing sample;
+3. Train the model using training sample and validation sample;
+4. Evaluate the model performance on the testing sample.
 
-As for the empirical analysis, just replace the generated data in step 1 with the designed feature and excess return based on your dataset.
+As for the empirical analysis, just replace the generated data in step 1 with the designed feature and excess return based on the real dataset.
 
-We recommend to run our code with GPU, since it could be much faster compared to running on CPU.
+We suggest utilizing GPU while running our code, as it can significantly enhance the processing speed compared to running it on CPU. 
 '''
 
 import numpy as np

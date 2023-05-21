@@ -54,7 +54,7 @@ class AE_Factor_Network(nn.Module):
         x3 = torch.zeros((x2.shape[0], self.P), device = self.device)
         
         for t in range(x2.shape[0]):
-            x3[t, :] = torch.inverse(x1[t, :, :].t() @ x1[t, :, :]) @ x1[t, :, :].t() @ x2[t, :]
+            x3[t, :] = torch.linalg.pinv(x1[t, :, :].t() @ x1[t, :, :]) @ x1[t, :, :].t() @ x2[t, :]
         
         factor_loading = self.factor_loading_network(x1)
         factor_return = torch.unsqueeze(self.Encoder(x3), axis = 2)
@@ -83,7 +83,7 @@ class VAE_Factor_Network(nn.Module):
         x3 = torch.zeros((x2.shape[0], self.P), device = self.device)
         
         for t in range(x2.shape[0]):
-            x3[t, :] = torch.inverse(x1[t, :, :].t() @ x1[t, :, :]) @ x1[t, :, :].t() @ x2[t, :]
+            x3[t, :] = torch.linalg.pinv(x1[t, :, :].t() @ x1[t, :, :]) @ x1[t, :, :].t() @ x2[t, :]
         
         factor_loading = self.factor_loading_network(x1)
         mean, log_var = self.Encoder(x3)
@@ -146,7 +146,7 @@ class Quantile_AE_Factor_Network(nn.Module):
         x3 = torch.zeros((x2.shape[0], self.P), device = self.device)
         
         for t in range(x2.shape[0]):
-            x3[t, :] = torch.inverse(x1[t, :, :].t() @ x1[t, :, :]) @ x1[t, :, :].t() @ x2[t, :]
+            x3[t, :] = torch.linalg.pinv(x1[t, :, :].t() @ x1[t, :, :]) @ x1[t, :, :].t() @ x2[t, :]
         
         factor_loading = self.factor_loading_network(x1)
         factor_return = torch.unsqueeze(self.Encoder(x3), axis = 2)
@@ -184,7 +184,7 @@ class Quantile_VAE_Factor_Network(nn.Module):
         x3 = torch.zeros((x2.shape[0], self.P), device = self.device)
         
         for t in range(x2.shape[0]):
-            x3[t, :] = torch.inverse(x1[t, :, :].t() @ x1[t, :, :]) @ x1[t, :, :].t() @ x2[t, :]
+            x3[t, :] = torch.linalg.pinv(x1[t, :, :].t() @ x1[t, :, :]) @ x1[t, :, :].t() @ x2[t, :]
         
         factor_loading = self.factor_loading_network(x1)
         mean, log_std = self.Encoder(x3)

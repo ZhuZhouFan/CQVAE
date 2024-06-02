@@ -29,13 +29,13 @@ Please cite our paper if you feel this code helps.
 ```
 @article{Yang2024CQVAE,
     author = {Xuanling Yang, Zhoufan Zhu, Dong Li and Ke Zhu},
-title = {Asset Pricing via the Conditional Quantile Variational Autoencoder},
-journal = {Journal of Business \& Economic Statistics},
-volume = {42},
-number = {2},
-pages = {681--694},
-year = {2024},
-publisher = {Taylor \& Francis},
-doi = {10.1080/07350015.2023.2223683},
+    title = {Asset Pricing via the Conditional Quantile Variational Autoencoder},
+    journal = {Journal of Business \& Economic Statistics},
+    volume = {42},
+    number = {2},
+    pages = {681--694},
+    year = {2024},
+    publisher = {Taylor \& Francis},
+    doi = {10.1080/07350015.2023.2223683},
 }
 ```
